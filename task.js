@@ -37,3 +37,57 @@ const friends = ['Rakib', 'Shakib', 'habib', 'Olive', 'jack', 'ove', 'lili', 'lo
 // using filter
 const even = friends.filter(friend => friend.length % 2 === 0);
 console.log(even);
+
+/***  Practice Problem - 03  ***/
+/** Write an arrow function where it will do the following: x^2
+a) Square each array element.
+b)Calculate the sum of the squared elements
+C) Return the average of the sum of the squared elements.
+ 
+ */
+// normal function :
+const number = [5, 6, 7, 8];
+let total = [];
+let sum = 0;
+function squared(){
+    for(num of number){
+        let square = num * num;
+        
+        sum = sum + square; 
+    }
+     let average = sum / number.length;
+     total.push(average);
+     return total;
+}
+// console.log(squared(total));
+
+// Reduce Method:
+const number2 = [5, 6, 7, 8];
+const square = number2.reduce((sum, squared) => sum + (squared * squared) / number2.length, 0);
+console.log(square);
+
+/** Practice Problem - 04   **/ 
+/**
+ *a) It will take two array input.
+b)Combine the two array and assign them in a new array.
+c)Find the maximum number from the new array and return the result.
+ * **/
+// normal function:
+const firstArray = [10, 20, 34, 44];
+const secondArray = [33, 67, 89, 95];
+function maxNumber(first, second){
+    const totalArray = first.concat(second);
+    let max = 0;
+    for(num of totalArray){
+        if(num > max){
+            max = num;
+        }
+    }
+    return max;
+}
+console.log(maxNumber(firstArray, secondArray));
+
+// using spread and math max:
+const totalArray = firstArray.concat(secondArray);
+const maximumNumber = Math.max(...totalArray);
+console.log(maximumNumber);
